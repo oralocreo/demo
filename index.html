@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-10">
+<title>Title of the document</title>
+</head>
+
+<body>
+Content of the document......
+</body>
+<script>
+	//il prezzo di un bligletto del cinema è 7 
+	//se il cliente è femmina c'è lo sconto del 10%
+	//se il cliente è un bambino lo sconto è del 50%
+
+	// un cliente è femmina se il nome finisce con la a
+	// un cliente è bambino quando il nome finisce con ino oppure ina (es: franceschina, stefanino)
+
+	// 1) dichiarare var nomeCliente
+	// 2) dichiarare var prezzoBiglietto
+
+
+	/*
+		if (è un bambino/a) {
+			prezzo =  prezzo - sconto 50% al prezzo finale
+		} else if (è femmina) {
+			prezzo = prezzo - sconto 10%
+		} 
+		console.log (prezzo)
+	*/
+	var prezzo = 7;
+	var scontoBimbi = '76%';
+	var scontoDonna = '30%';
+	var scontoUomo = '5%';
+
+	//var nomeCliente = "Topolino";
+	//var nomeCliente = "Francesca";
+	//var nomeCliente = "Topolina";
+	var nomeCliente = 'Stefano';
+
+	var isBambino = nomeCliente.endsWith('ino');
+	var isBambina = nomeCliente.endsWith('ina');
+	var isFemmina = nomeCliente.endsWith('a');
+	var isMaschio = nomeCliente.endsWith('o');
+	var sesso = 'x';
+	var sconto = 'y';
+
+	var scontoBimbiLong = scontoBimbi.substring(0,2)/100;
+	//console.log ('sconto =', scontoBimbiLong);
+
+	var scontoDonnaLong = scontoDonna.substring(0,2)/100;
+	//console.log ('scontoDonna =', scontoDonnaLong);
+
+	var scontoUomoLong = scontoUomo.substring(0,2)/100;
+	//console.log ('scontoUomo =', scontoUomoLong);
+
+		if (isBambino || isBambina){
+			if (isBambina){
+				console.log ('rosa');
+				sesso = 'femmina';
+			} else {
+				console.log ('celeste');
+				sesso = 'maschio';
+			}
+			prezzo = prezzo -(prezzo*scontoBimbiLong); 
+			sconto = scontoBimbi;
+
+		} else if (isFemmina){
+			//console.log ('femmina');
+			sesso = 'femmina';
+			prezzo = prezzo -(prezzo*scontoDonnaLong);
+			sconto = scontoDonna;
+
+		} else if (isMaschio){
+			//console.log ('maschio');
+			sesso = 'maschio';
+			prezzo = prezzo - (prezzo*scontoUomoLong);
+			sconto = scontoUomo;
+		}
+
+
+	console.log ('nome Cliente', nomeCliente);
+	console.log ('sesso Cliente', sesso);
+	console.log ('sconto applicato', sconto);
+	console.log ('costo biglietto', prezzo);
+		
+</script>
+</html> 
